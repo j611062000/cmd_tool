@@ -1,5 +1,12 @@
+import configparser
+from model.config import Config
+
 __app_name__ = "price_getter"
 __version__ = "0.1.0"
+
+config_path = "./price_getter/config.ini"
+config_instance: Config = Config()
+
 
 (
     SUCCESS,
@@ -18,3 +25,8 @@ ERRORS = {
     DB_WRITE_ERROR: "database write error",
     ID_ERROR: "to-do id error",
 }
+
+
+config = configparser.ConfigParser()
+config.read(config_path) 
+config_instance.update_from_config(config)
