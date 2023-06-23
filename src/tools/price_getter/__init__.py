@@ -1,4 +1,4 @@
-__app_name__ = "cli_tool"
+__app_name__ = "price_getter"
 __version__ = "0.1.0"
 
 (

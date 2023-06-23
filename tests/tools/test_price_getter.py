@@ -1,6 +1,6 @@
 from typer.testing import CliRunner
+from src.tools.price_getter import cli, __app_name__, __version__
 
-from source.price_getter import __app_name__, __version__, cli
 
 runner = CliRunner()
 
