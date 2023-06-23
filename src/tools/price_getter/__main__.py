@@ -1,7 +1,8 @@
-from price_getter import cli, __app_name__
+from price_getter import service, __app_name__
 
 def main():
-    cli.app(prog_name=__app_name__)
+    while True:
+        service.app(prog_name=__app_name__)
 
 if __name__ == "__main__":
     main()
