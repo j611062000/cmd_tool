@@ -11,10 +11,10 @@ from . import __app_name__, __version__, config_instance
 # todo: add a class for response
 
 app = typer.Typer()
-api = "https://www.twse.com.tw/exchangeReport/STOCK_DAY_ALL"
-config_instacne = config_instance
+api = config_instance.twse_api_endpoint
 local_cache_dir = "./price_getter/.cache"
 sync_pirce_local_cache = "closing_price.pickle"
+is_enable_cache=config_instance.is_enable_cache
 
 def try_get_price_from_cache(is_from_cache: bool = True) -> DailyPriceList:
     full_cache_path = local_cache_dir+"/"+sync_pirce_local_cache
@@ -36,7 +36,7 @@ def try_get_price_from_cache(is_from_cache: bool = True) -> DailyPriceList:
 
 @app.command("refresh")
 def get_price(ticker: str = ""):
-    daily_price_list: DailyPriceList = try_get_price_from_cache(config_instacne.is_enable_cache)
+    daily_price_list: DailyPriceList = try_get_price_from_cache(is_enable_cache)
     
     title = "Close Price" + ", Updated at: " + daily_price_list.date
 
