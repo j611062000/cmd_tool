@@ -2,7 +2,7 @@ from typing import Optional
 
 import typer
 
-from source import __app_name__, __version__
+from price_getter import __app_name__, __version__
 
 app = typer.Typer()
 
